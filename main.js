@@ -1,14 +1,14 @@
 document.getElementById("initialPartition").style.backgroundColor =
   randomBackgroundColor();
 
-const randomBackgroundColor = () => {
+function randomBackgroundColor() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
   const b = Math.floor(Math.random() * 256);
   return `rgb(${r}, ${g}, ${b})`;
-};
+}
 
-const splitPartition = (direction, partition) => {
+function splitPartition(direction, partition) {
   const first = document.createElement("div");
   const second = document.createElement("div");
 
@@ -40,9 +40,9 @@ const splitPartition = (direction, partition) => {
 
   addControls(first);
   addControls(second);
-};
+}
 
-const addControls = (partition) => {
+function addControls(partition) {
   const btnControl = document.createElement("div");
   btnControl.classList.add("partition-btns");
 
@@ -63,9 +63,9 @@ const addControls = (partition) => {
   btnControl.appendChild(buttonRemove);
 
   partition.appendChild(btnControl);
-};
+}
 
-const addResizer = (partition, direction) => {
+function addResizer(partition, direction) {
   const resizer = document.createElement("div");
   resizer.classList.add(
     "resizer",
@@ -73,9 +73,9 @@ const addResizer = (partition, direction) => {
   );
   resizer.addEventListener("mousedown", initResize);
   partition.appendChild(resizer);
-};
+}
 
-const initResize = (e) => {
+function initResize(e) {
   const resizer = e.target;
   const isVertical = resizer.classList.contains("vertical");
   const partition = resizer.parentElement;
@@ -102,7 +102,7 @@ const initResize = (e) => {
 
   window.addEventListener("mousemove", mouseMoveHandler);
   window.addEventListener("mouseup", mouseUpHandler);
-};
+}
 
 function removePartition(partition) {
   const parent = partition.parentElement;

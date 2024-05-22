@@ -4,7 +4,79 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dynamic Layout</title>
-    <link rel="stylesheet" href="./style.css" />
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f0f0;
+      }
+
+      #container {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        border: 2px solid #333;
+        position: relative;
+      }
+
+      .main-partition {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        background: red;
+      }
+
+      .partition {
+        position: relative;
+        display: flex;
+        border: 1px solid #000;
+      }
+
+      .partition-btns {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        width: 100%;
+        gap: 20px;
+        position: absolute;
+        top: 10px;
+        z-index: 2;
+      }
+
+      .partition-btns button {
+        padding: 8px 25px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        height: fit-content;
+      }
+
+      .resizer {
+        position: absolute;
+        background: #000;
+        z-index: 1;
+      }
+
+      .resizer.horizontal {
+        width: 100%;
+        height: 5px;
+        bottom: 0;
+        cursor: row-resize;
+      }
+
+      .resizer.vertical {
+        width: 5px;
+        height: 100%;
+        right: 0;
+        cursor: col-resize;
+      }
+    </style>
   </head>
   <body>
     <div id="container">
